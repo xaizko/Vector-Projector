@@ -19,6 +19,10 @@ class VectorController {
 			v2.z = z;
 		}
 
+		Vector3 getResult() {
+			return v3;
+		}
+
 		void performOperation(Operations operation) {
 			switch(operation) {
 				case (Operations::ADD):
