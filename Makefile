@@ -1,15 +1,24 @@
 CXX = g++
-LDFLAGS = -lraylib
-SRC = $(wildcard src/*.cpp)
+CXXFLAGS = -std=c++23 -Wall -Wextra
+LDLIBS = -lraylib
+
+SRC = src/main.cpp
 OBJ = $(SRC:src/%.cpp=bin/%.o)
+DEP = $(OBJ:.o=.d)
 TARGET = bin/vector_projection
 
+.PHONY: all clean
+
 all: $(TARGET)
+
 $(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ) -o $@ $(LDLIBS)
 
 bin/%.o: src/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
-clean: 
-	rm -rf bin/*.o $(TARGET)
+-include $(DEP)
+
+clean:
+	rm -rf bin
