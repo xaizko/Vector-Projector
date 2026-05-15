@@ -8,15 +8,15 @@ class VectorController {
 		VectorController(){}
 
 		void setV1(double x, double y, double z) {
-			v1.x_cord = x;
-			v1.y_cord = y;
-			v1.z_cord = z;
+			v1.x = x;
+			v1.y = y;
+			v1.z = z;
 		}
 
 		void setV2(double x, double y, double z) {
-			v2.x_cord = x;
-			v2.y_cord = y;
-			v2.z_cord = z;
+			v2.x = x;
+			v2.y = y;
+			v2.z = z;
 		}
 
 		void performOperation(Operations operation) {
@@ -40,7 +40,7 @@ class VectorController {
 		}
 
 	private:
-		vector3 v1;
-		vector3 v2;
-		vector3 v3;
+		Vector3 v1;
+		Vector3 v2;
+		Vector3 v3;
 };

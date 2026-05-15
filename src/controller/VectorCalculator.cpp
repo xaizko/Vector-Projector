@@ -1,44 +1,44 @@
-#include "Vector.h"
+#include <raylib.h>
 #include <cmath>
 
-vector3 addVector(vector3 v1, vector3 v2) {
-	vector3 v3;
+Vector3 addVector(Vector3 v1, Vector3 v2) {
+	Vector3 v3;
 
-	v3.x_cord = v1.x_cord + v2.x_cord;
-	v3.y_cord = v1.y_cord + v2.y_cord;
-	v3.z_cord = v1.z_cord + v2.z_cord;
-
-	return v3;
-}
-
-vector3 subtractVector(vector3 v1, vector3 v2) {
-	vector3 v3;
-
-	v3.x_cord = v1.x_cord - v2.x_cord;
-	v3.y_cord = v1.y_cord - v2.y_cord;
-	v3.z_cord = v1.z_cord - v2.z_cord;
+	v3.x = v1.x + v2.x;
+	v3.y = v1.y + v2.y;
+	v3.z = v1.z + v2.z;
 
 	return v3;
 }
 
-vector3 dotProduct(vector3 v1, vector3 v2) {
-	vector3 v3;
-	v3.x_cord = (v1.x_cord * v2.x_cord);
-	v3.y_cord = (v1.y_cord * v2.y_cord);
-	v3.z_cord = (v1.z_cord * v2.z_cord);
+Vector3 subtractVector(Vector3 v1, Vector3 v2) {
+	Vector3 v3;
+
+	v3.x = v1.x - v2.x;
+	v3.y = v1.y - v2.y;
+	v3.z = v1.z - v2.z;
 
 	return v3;
 }
 
-vector3 crossProduct(vector3 v1, vector3 v2) {
-	vector3 v3;
-	v3.x_cord = (v1.y_cord * v2.z_cord) - (v1.y_cord * v2.z_cord);
-	v3.y_cord = -((v1.x_cord * v2.z_cord) - (v1.z_cord * v2.x_cord));
-	v3.z_cord = (v1.x_cord * v2.y_cord) - (v1.y_cord * v2.x_cord);
+Vector3 dotProduct(Vector3 v1, Vector3 v2) {
+	Vector3 v3;
+	v3.x = (v1.x * v2.x);
+	v3.y = (v1.y * v2.y);
+	v3.z = (v1.z * v2.z);
 
 	return v3;
 }
 
-int calculateMagnitude(vector3 v) {
-	return sqrt((v.x_cord*v.x_cord) + (v.y_cord * v.y_cord) + (v.z_cord * v.z_cord));
+Vector3 crossProduct(Vector3 v1, Vector3 v2) {
+	Vector3 v3;
+	v3.x = (v1.y * v2.z) - (v1.y * v2.z);
+	v3.y = -((v1.x * v2.z) - (v1.z * v2.x));
+	v3.z = (v1.x * v2.y) - (v1.y * v2.x);
+
+	return v3;
+}
+
+int calculateMagnitude(Vector3 v) {
+	return sqrt((v.x*v.x) + (v.y * v.y) + (v.z * v.z));
 }
